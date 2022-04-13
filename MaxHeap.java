@@ -141,22 +141,32 @@ public final class MaxHeap<T extends Comparable<? super T>>
          throw new IllegalStateException("Capacity is over the limit");
       }
    }
+   public int getSwaps(){
+      return swaps;
+   }
 // Private methods
 // . . .
 private void ensureCapacity(){
-   if(lastIndex == heap.length){
-      int newLength = 2*heap.length;
+   if(lastIndex >= heap.length){
+      int newLength = 2*(heap.length-1);
       checkCapacity(newLength);
       heap = Arrays.copyOf(heap,newLength);
    }
 }
 public static void main(String[] args) throws FileNotFoundException{
-  
-File file = new File("data_sorted.txt");
+
+//relative path 
+File file = new File("Project4\\data_sorted.txt");
 Scanner scan = new Scanner(file);
+int[] heapData = new int[100];
+MaxHeap<Integer> iter = new MaxHeap<>(100);
+int i =0;
 while(scan.hasNextInt()){
-System.out.println(scan.nextInt());
+iter.add(scan.nextInt());
+heapData[i++] = scan.nextInt();
 }
+System.out.println(iter.getSwaps());
+
 scan.close();
 }
 } // end MaxHeap
