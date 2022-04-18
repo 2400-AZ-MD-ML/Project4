@@ -29,12 +29,13 @@ public class MaxHeapDriver {
             System.out.print(iter.get(index) + " ");
         }
         */
-
+        
+        // building heap using optimal method
         MaxHeap<Integer> smart = new MaxHeap<>(heapData);
         for(int index = 1; index<=10; index++){
            System.out.print(smart.get(index) + " ");
         }
-
+        
         System.out.println();
         System.out.println(iter.getSwaps());
         
