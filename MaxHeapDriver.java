@@ -9,7 +9,7 @@ public class MaxHeapDriver {
     public static void main(String[] args) throws IOException, FileNotFoundException{
 
         //relative path 
-        File file = new File("data_sorted.txt"); //open file to read from and create heap
+        File file = new File("Project4\\data_sorted.txt"); //open file to read from and create heap
         Scanner scan = new Scanner(file);
         Integer[] heapData = new Integer[100];
         MaxHeap<Integer> iter = new MaxHeap<>(101);
@@ -21,10 +21,24 @@ public class MaxHeapDriver {
             iter.add(next);
             heapData[i++] = next;
         }
+        System.out.println();
+        for(int index =0; index<10; index++){
+            iter.removeMax();
+        }
+        for(int index=1; index<=10; index++){
+           System.out.print(iter.get(index) + " ");
+        }
+        // MaxHeap<Integer> smart = new MaxHeap<>(heapData);
+        // for(int index = 1; index<=10; index++){
+        //    System.out.print(smart.get(index) + " ");
+        // }
+    
+        System.out.println();
+        System.out.println(iter.getSwaps());
         
         scan.close();
 
-        File output = new File("Output.txt"); //file to hold output data
+        File output = new File("Project4\\Output.txt"); //file to hold output data
         FileWriter fw = new FileWriter(output);
 
         //building heap using sequential insertions

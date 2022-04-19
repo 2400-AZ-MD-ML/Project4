@@ -89,6 +89,7 @@ public final class MaxHeap<T extends Comparable<? super T>>
             largerChild = rightChildIndex;
          }
          if(orphan.compareTo(heap[largerChild])<0){
+            swaps++;
             heap[rootIndex] = heap[largerChild];
             rootIndex = largerChild;
             leftChildIndex = 2*rootIndex;
