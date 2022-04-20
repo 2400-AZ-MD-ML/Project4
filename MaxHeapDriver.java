@@ -14,27 +14,17 @@ public class MaxHeapDriver {
         Integer[] heapData = new Integer[100];
         MaxHeap<Integer> iter = new MaxHeap<>(101);
 
-        // loop to iterate & print through integers in data_sorted.txt
+        // loop to iterate through integers in data_sorted.txt
         int i = 0;
         while(scan.hasNextInt()){
             int next = scan.nextInt();
             iter.add(next);
             heapData[i++] = next;
         }
-        System.out.println();
+        
         for(int index =0; index<10; index++){
             iter.removeMax();
         }
-        for(int index=1; index<=10; index++){
-           System.out.print(iter.get(index) + " ");
-        }
-        // MaxHeap<Integer> smart = new MaxHeap<>(heapData);
-        // for(int index = 1; index<=10; index++){
-        //    System.out.print(smart.get(index) + " ");
-        // }
-    
-        System.out.println();
-        System.out.println(iter.getSwaps());
         
         scan.close();
 
